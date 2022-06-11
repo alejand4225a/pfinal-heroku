@@ -1,0 +1,52 @@
+{% extends 'registroNotas/base.html' %}
+{% block titulo %}
+Registro Usuario
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="container">
+    <div class="row">
+        <div class="logo col-6">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="">
+                <center><h1>Registro Usuario</h1></center>
+            </div>
+            <div class="mensajes">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class="alert alert-success">
+                    {% for message in messages %}
+                    <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="registro">
+                <form action="{{ url_for('registrousuario') }}" method="post" class="form-group" autocomplete="off">
+
+                    <input class="form-control" type="text" name="nombre" placeholder="Nombre usuario"
+                        value="{{nombre}}">
+                        <br>
+                    <input class="form-control" type="email" name="email" placeholder="Email" value="{{email}}">
+                    <br>
+                    <input class="form-control" type="password" name="password" placeholder="Contraseña"
+                        value="{{password}}">
+                    <div class="msg">{{ msg }}</div>
+                    <br>
+                    <center>
+                        <input class="btn btn-dark" type="submit" value="Register"><br><br>
+                        <a href="{{ url_for('login') }}" class="text-dark">Iniciar sesion</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

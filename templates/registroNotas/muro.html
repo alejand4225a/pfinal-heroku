@@ -1,0 +1,105 @@
+{% extends 'registroNotas/base.html' %}
+
+{% block titulo %}
+PARCIAL
+{% endblock %}
+
+{% block contenido %}
+<section class="section-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand">Muro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-md-auto">
+                <a href="{{ url_for('exit') }}" class="nav-link">SALIR</a>
+            </div>
+            
+        </div>             
+    </nav>
+    <div class="container">
+        <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="alert alert-success">
+            {% for message in messages %}
+            <center><li>{{message}}</li></center>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="col-5">
+                <center>
+                    <h1>Imagenes</h1>
+                </center>
+                <br>
+                <div class="logo">
+                    <form action="" method="POST" enctype="multipart/form-data" class="form-group">
+                        <label class="font-weight-bold">Descripcion <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="descripcion" placeholder="Descripcion">
+                        <label class="font-weight-bold">Imagen <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" name="imagen" placeholder="Imagen" />
+                        <br>
+                        <center>
+                            <button type="submit" class="btn btn-dark">Subir imagen</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <div class="logo">
+                    <form action="" method="post" class="form-group" autocomplete="off">
+                        <center>
+                            <h1>Registro estudiantes</h1>
+                        </center>
+                        <br>
+                        <input class="form-control" type="text" name="nombre" placeholder="Nombre estudiante"
+                            value="{{nombre}}">
+                        <center>
+                            <h2>Notas</h2>
+                        </center>
+                        <div class="row">
+                            <div class="col">
+                                <label class="font-weight-bold">Nota 1 <span class="text-danger">*</span></label>
+                                <input class="form-control" type="number" name="nota1" placeholder="nota"
+                                    value="{{nota1}}">
+                            </div>
+                            <div class="col">
+                                <label class="font-weight-bold">Nota 2 <span class="text-danger">*</span></label>
+                                <input class="form-control" type="number" name="nota2" placeholder="nota"
+                                    value="{{nota2}}">
+                            </div>
+                            <div class="col">
+                                <label class="font-weight-bold">Nota 3 <span class="text-danger">*</span></label>
+                                <input class="form-control" type="number" name="nota3" placeholder="nota"
+                                    value="{{nota3}}">
+                            </div>
+                        </div>
+                        <div class="msg">{{ msg }}</div>
+                        <br>
+                        <center>
+                            <button type="submit" class="btn btn-dark">Agregar estudiante</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <div class="row vista">
+            <div class="col-5">
+                <center><a href="" class="btn btn-light">Ver imagenes</a></center><br>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <center><a href="{{ url_for('notas') }}" class="btn btn-light">Ver estudiantes</a></center>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'registroNotas/base.html' %}
+
+{% block titulo %}
+PARCIAL#2
+{% endblock %}
+
+{% block contenido %}
+<div class="contenedor">
+    <div class="row">
+        <div class="col-10 logo">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="col-3" scope="col">NOMBRE</th>
+                        <th class="col-2" scope="col">NOTA 1</th>
+                        <th class="col-2" scope="col">NOTA 2</th>
+                        <th class="col-2" scope="col">NOTA 3</th>
+                        <th class="col-2" scope="col">NOTA FINAL</th>
+                        <th class="col-1" scope="col" colspan="2">
+                            <center>HERRAMIENTAS</center>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudiante in estudiantes %}
+                    <tr>
+                        <td>{{ estudiante[1]}}</td>
+                        <td>{{ estudiante[2]}}</td>
+                        <td>{{ estudiante[3]}}</td>
+                        <td>{{ estudiante[4]}}</td>
+                        <td>{{ estudiante[5]}}</td>
+                        <td>
+                            <center>
+                                <a href="{{ url_for('editarEstudiante', id=estudiante[0]) }}"><button class="btn btn-success">Editar</button></a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <a href="{{ url_for('eliminarEstudiante', id=estudiante[0]) }}"><button class="btn btn-success">Eliminar</button></a>
+                            </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

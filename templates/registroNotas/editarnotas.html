@@ -1,0 +1,58 @@
+{% extends 'registroNotas/base.html' %}
+
+{% block titulo %}
+PARCIAL#2
+{% endblock %}
+
+{% block contenido %}
+<div class="contenerdor">
+    <div class="row logo">
+        <div class="col-5 logo">
+            <div class="logo">
+                <form action="{{ url_for('editarfinal') }}" method="POST" class="form-group" >
+                    <center>
+                        <h1>Editar estudiante</h1>
+                    </center>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">id: </label><br>
+                            <input class="form-control" type="text" name="id" value="{{id}}">
+                        </div>
+                        <div class="col">
+                            <label for="">Nombre: </label>
+                            <input class="form-control" type="text" name="nombre" placeholder="Nombre estudiante"
+                                value="{{nombre}}">
+                        </div>
+                    </div>
+
+                    <center>
+                        <h2>Notas</h2>
+                    </center>
+                    <div class="row">
+                        <div class="col">
+                            <label class="font-weight-bold">Nota 1 <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="nota1" placeholder="nota" value="{{nota1}}">
+                        </div>
+                        <div class="col">
+                            <label class="font-weight-bold">Nota 2 <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="nota2" placeholder="nota" value="{{nota2}}">
+                        </div>
+                        <div class="col">
+                            <label class="font-weight-bold">Nota 3 <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="nota3" placeholder="nota" value="{{nota3}}">
+                        </div>
+                    </div>
+                    <div class="msg">{{ msg }}</div>
+                    <br>
+                    <center>
+                        <button type="submit" class="btn btn-dark" >Editar estudiante</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

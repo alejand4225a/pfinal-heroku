@@ -1,0 +1,58 @@
+{% extends 'registroNotas/base.html' %}
+
+{% block titulo %}
+PARCIAL#2
+{% endblock %}
+
+{% block contenido %}
+<section class="section-1">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">BIENVENIDO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-md-auto">
+                <a class="nav-link" href="{{ url_for('registrousuario') }}">Registrar Usuario</a>
+                <a class="nav-link" href="{{ url_for('login') }}">login</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            
+                <div class="logo">
+                    
+                        <main>
+                            <div class="container">
+                                <div class="row py-5">
+                                    <h1 class="text-center text-dark fw-bolder">ACORTADOR DE URL LOS PONCHOS</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <form method="post" action="/create">
+                                            <div class="mb-3">
+                                                <label for="url" class="form-label text-dark">Ingrese Dirección Url</label>
+                                                <input type="text" autofocus autocomplete="off" class="form-control" name="dirUrl"
+                                                    id="url" placeholder="Ingrese url https://www.example.com/">
+                
+                                            </div>
+                                            <div class="d-grid gap-2 col-2 mx-1">
+                                                <button type="submit" class="btn btn-dark">Acortar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </main>
+                    
+                </div>
+            
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

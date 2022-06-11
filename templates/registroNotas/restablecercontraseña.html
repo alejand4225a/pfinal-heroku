@@ -1,0 +1,50 @@
+{% extends 'registroNotas/base.html' %}
+
+
+{% block titulo %}
+Restablecer Contraseña
+{% endblock %}
+
+{% block contenido %}
+<section class="contact-box">
+
+    <div class="row no-gutters bg-dark">
+
+        
+        <div class="col-xl-7 col-lg-12 d-flex">
+            <div class="container align-self-center p-6">
+                <h2 class="font-weight-bold mb-3">Restablecer contraseña</h2>
+                <div class="flash">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class="alert alert-danger">
+                        {% for message in messages %}
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+
+                <form action="{{ url_for('restablecerpassword') }}" method="POST">
+
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold">Correo electronico <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" name="email" placeholder="Tu correo electronico"
+                            value="{{email}}">
+                    </div>
+                    <div class="msg">{{ msg }}</div>
+
+                    <div class="form-group mb-5">
+                        <button type="submit" class="btn btn-outline-primary d-inline text-light mr-2 mb-3 width-100"><i
+                                class="icon ion-md-person lead align-middle mr-2"></i> Verificar</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
